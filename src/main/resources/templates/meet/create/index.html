@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://tymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro</title>
+</head>
+<body>
+	<h3>Agende sua reunião</h3>
+	<div class="card">
+		<div class="card-body">
+			<form class="" th:method="post" th:object="${meet}" th:action="@{/meet/action/create}">
+				<div class="mb-4">
+					<label for="meetName">Nome da reunião</label>
+					<input id="meetName" type="text" th:field="*{meetingName}" required/>
+				</div>
+				
+				<div class="mb-4">
+					<label for="dtStart">Data de início</label>
+					<input id="dtStart" type="date" th:field="*{meetingStartDate}" required/>
+					
+					
+					<label for="tmStart">Horário de início</label>
+					<input id="tmStart" type="time" th:field="*{meetingStartTime}" required/>
+				</div>
+				
+				
+				<div class="mb-4">
+					<label for="dtEnd">Data de término</label>
+					<input id="dtEnd" type="date" th:field="*{meetingEndDate}" required/>
+					
+					
+					<label for="tmEnd">Horário de término</label>
+					<input id="tmEnd" type="time" th:field="*{meetingEndTime}" required/>
+				</div>
+				
+			
+				<div class="mb-4">
+					<label for="priority">Prioridade</label>
+					<input id="priority" type="number" th:field="*{priority}" required/>
+				</div>
+				
+				
+				<div class="mb-4">
+					<label for="category" >Categoria</label>
+					<select id="category" th:field="*{meetingCategory}">
+				     	<option value="Planning">Planning</option>
+				        <option value="Daily">Daily</option>
+				        <option value="Pass">Pass</option>
+				        <option value="Weekly">Weekly</option>
+				        <option value="Start Project">Start Project</option>			
+				        <option value="End Project">End Project</option>
+					</select>
+				</div>
+				
+				<div class="mb-4">
+					<label for="description">Descrição da reunião</label>
+					<textarea id="description" th:field="*{meetingDescription}"></textarea>
+				</div>
+				
+				<button type="submit" class="btn bg-primary bg-gradient">Criar</button>
+				
+			</form>	
+		</div>
+	</div>
+	
+</body>
+</html>
